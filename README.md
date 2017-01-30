@@ -4,7 +4,7 @@ Altitude Angel open-sources a number of data exchange protocols for UTM organisa
 
 ## Current protocols
 
-1. UAV/Operator Flight Declaration Exchange Protocol
+1. [UAV/Operator Flight Declaration Exchange Protocol](https://github.com/AltitudeAngel/Protocols/blob/master/UTM/FlightDeclaration.md)
 
 ## Join the community
 
