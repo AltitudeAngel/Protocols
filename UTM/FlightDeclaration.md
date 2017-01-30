@@ -383,10 +383,10 @@ The primary entity exchanged between Originating and Interested Parties.
 ### 7.1.1Example
 
     {
-    "flightId": "5a7f3377-b991-4cc8-af2d-379d57f786d1",
-    "sequenceNumber": 0,
-    "flightDeclaration": { ... },
-    "version": "1.0.0"
+        "flightId": "5a7f3377-b991-4cc8-af2d-379d57f786d1",
+        "sequenceNumber": 0,
+        "flightDeclaration": { ... },
+        "version": "1.0.0"
     }
 
 ### 7.2 altitudeDatum enum
@@ -421,8 +421,8 @@ to smooth implementation of the protocol.
 An altitude 152.4 metres above ground level would be represented by the following entity:
 
     {
-    "metres": 152.4,
-    "datum": "agl"
+        "metres": 152.4,
+        "datum": "agl"
     }
 
 ### 7.4 flightPart
