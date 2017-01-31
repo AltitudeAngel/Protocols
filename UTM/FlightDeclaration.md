@@ -14,9 +14,9 @@ while allowing each UTM Provider to retain ownership of their customer data._
 | 0.1.1 | 03/11/16 | Updates to terminology and inclusion of example message flows |
 | 0.2 | 16/01/17 | Version 0.2 ready for public release and comment |
 
-**COPYRIGHT NOTICE**
+**LICENSE**
 
- Copyright 2017 Altitude Angel Limited. Includes contributions from GUTMA (The Global UTM Association) members.
+ Copyright 2017 Altitude Angel Limited.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
