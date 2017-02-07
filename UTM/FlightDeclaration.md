@@ -305,7 +305,7 @@ In the event of a HTTP status code indicating failure or a failure to receive a 
 Interested Party&#39;s endpoint, the Originating Party should continue to retry to send the message until the flight&#39;s 
 endTime has passed. It is expected that there will be a delay between reties.
 
-The Interested Party can set the shouldRety flag in the returned error message to false if it receives a message it is unable 
+The Interested Party can set the [shouldRetry](#errorMessage) flag in the returned error message to false if it receives a message it is unable 
 to process and having the Originating Party resend the message unchanged will not help mitigate this problem – e.g. if the 
 message fails validation.
 
@@ -611,7 +611,7 @@ after the return leg. This drone is expecting to provide telemetry during the fl
         "operationMode": "bvlos"
     }
 
-### 7.8 error
+### <a id="errorMessage"></a> 7.8 error
 
 | Name | Description | Type |
 | --- | --- | --- |
