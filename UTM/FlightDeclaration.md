@@ -292,7 +292,7 @@ unsigned integer – i.e. a whole number greater than or equal to zero.
 
 ### 6.3 Deletion
 
-To delete a Flight Declaration a null flightDeclaration element should be sent in the [message](#message)). To 
+To delete a Flight Declaration a null flightDeclaration element should be sent in the [message](#message). To 
 allow this protocol to be extended to allow other message payloads in the message type, the flightDeclaration member 
 must be set to null, omitting it is not permitted. The flightId must be provided and the sequence number increased.
 
