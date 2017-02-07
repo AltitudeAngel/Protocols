@@ -615,9 +615,16 @@ after the return leg. This drone is expecting to provide telemetry during the fl
 
 | Name | Description | Type |
 | --- | --- | --- |
-| **description** | A human-readable description of what the error was. | string |
+| **errorDescription** | A human-readable description of what the error was. | string |
+| **shouldRetry** | A flag to indicate that the whether the message should be queued for resending. If this is omitted, it should default to the value _true_ (i.e. the message should be retried). | bool |
 | **paramName** | If the error was caused due to validation failure, the name of the parameter should be provided in this field. | string _[optional]_ |
-| **shouldRetry** | A flag to indicate that the whether the message should be queued for resending. If this is omitted, it should default to the value _false_ (i.e. the message should _not_ be retried). | bool _[optional]_ |
+
+**Example 1: Retry not required**
+
+    {
+        "errorDescription": "Server doesn't require sender to retry",
+        "shouldRetry": false
+    }
 
 ## <a id="References"></a>8 References
 |||
