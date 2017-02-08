@@ -10,9 +10,9 @@ while allowing each UTM Provider to retain ownership of their customer data._
 
 | Version | Date | Comments |
 | --- | --- | --- |
-| 0.1 | 01/09/16 | Initial draft specification by Altitude Angel |
-| 0.1.1 | 03/11/16 | Updates to terminology and inclusion of example message flows |
-| 0.2 | 16/01/17 | Version 0.2 ready for public release and comment |
+| 0.1-draft | 01/09/16 | Initial draft specification by Altitude Angel |
+| 0.1.1-draft | 03/11/16 | Updates to terminology and inclusion of example message flows |
+| 0.2-draft | 16/01/17 | Version 0.2 ready for public release and comment |
 
 **LICENSE**
 
