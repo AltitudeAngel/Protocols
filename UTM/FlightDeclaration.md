@@ -432,10 +432,10 @@ A flight consists of one or more parts. Each part has a start and end time as we
 | Name | Description | Type |
 | --- | --- | --- |
 | **id** | An identifier that uniquely identifies this part within this flight. | string |
-| **geography** | A Polygon or LineString describing the planned operating area or route. | geometry |
+| **geography** | A Polygon or LineString describing the planned operating area or route. If the geography is a LineString, it may use the Z element of the GeoJSON spec to specify altitude changes during flight. For Polygons, any Z element value are ignored; the __maxAltitude__ property is used instead. If Z values are specified, they are presumed to be in the same altitude datum as __maxAltitude__. | geometry |
 | **startTime** | The time that the flight is expected to start. | datetime |
 | **endTime** | The time that the flight is expected to be completed by. This must always be greater than startTime. | datetime |
-| **maxAltitude** | The maximum altitude that the drone will achieve during the _flightPart_. | altitude |
+| **maxAltitude** | The maximum altitude that the drone will achieve during the _flightPart_. If __geography__ is a LineString using Z values to express altitude changes, __maxAltitude__ should be at least as high as the highest point in __geography__. | altitude |
 
 #### 7.4.1 Notes
 
@@ -523,6 +523,7 @@ It must not be treated as an error if the Interested Party does not recognise a 
 | **idents** | Any idents that are associated with this flight | array _[optional]_ |
 | **actualTakeOffTime** | The time the flight took off. This value can be null or omitted if the take-off time is not known | datetime _[optional]_ |
 | **actualLandingTime** | The time the flight completed. This value can be null or omitted if the landing time is not known | datetime _[optional]_ |
+| **uasInfo** | Optional object for providing, within the declaration, identifying information for the operator and hardware. | uasInfo _[optional]_ |
 
 #### 7.7.1 Notes
 
@@ -625,6 +626,39 @@ after the return leg. This drone is expecting to provide telemetry during the fl
         "errorDescription": "Server doesn't require sender to retry",
         "shouldRetry": false
     }
+
+### <a id="regulatoryIdentifier"></a> 7.9 UAS Info
+
+| Name | Description | Type |
+| --- | --- | --- |
+| **uasRegistrationNumber** | The registration id of the aircraft for a particular jurisdiction. | string |
+| **uasRegistrationJurisdiction** | The jurisdiction for the provided registration number. | string  |
+| **uasManufacturer** | Manufacturer of the hardware used. | string |
+| **uasModel** | Specific manufacturer model and version of the hardware used. | string |
+| **uasOperatorName** | Name of the person operating the drone. | string |
+| **uasOperatorType** | Is the operator commercial, recreational, government, etc.? | string |
+| **uasOperatorCertificateNumber** | Certificate the operator is using to operate in this airspace. | string |
+| **uasOperatorCertificateJurisdiction** | Jurisdiction of the operator's certificate. | string |
+| **uasOperatorContactNumber** | Phone number at which the operator can be called and/or texted during the operation. | string |
+| **additionalInfo** | A JSON object for providing additional information needed by a jurisdiction and not captured above. | JSON object |
+
+#### 7.9.1 Notes
+
+The regulatory identifier provides an optional, generic object for immediately identifying operators and hardware to regulatory bodies. In the case that a regulatory body will not permit an operation without embedded identifying information, this object may be used. Fields within the object are all optional; it is up to the submitting user and involved UTM network managers to ensure that the provided information is sufficient for a given jurisdiction.
+
+**Example 1:**  United States operator flying DJI hardware, no special fields. 
+
+     {
+         "uasRegistrationNumber": "FAXHYZZ34",
+         "uasRegistrationJurisdiction" : "USA",
+         "uasManufacturer": "DJI",
+         "uasModel": "Inspire 2",
+         "uasOperatorName": "Iam Anoperator",
+         "uasOperatorType": "Commercial",
+         "uasOperatorCertificateNumber": "435223",
+         "uasOperatorCertificateJurisdiction": "USA",
+         "uasOperatorContactNumber": "555-555-5555"
+     }
 
 ## <a id="References"></a>8 References
 |||
